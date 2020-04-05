@@ -1,33 +1,32 @@
-var threeSum = function(nums) {
-    let solution = [];
-    let obj = {};
-    nums.forEach(el => {
-      if (!obj[el]) {
-        obj[el] = 1;
-      } else {
-        obj[el]++;
-      }
-    });
+const threeSum = arr => {
+  // looking for three integers that add up to 0.
+​
+  // doubly nested loop, with 3 variables.arr
+  arr.sort((a,b) => a - b);
+  let ans = [];
+  for (let i = 0; i < arr.length - 2; i++) {
+      while (i > 0 && arr[i] === arr[i - 1]) i = i + 1;
+​
+      let j = i + 1;
+      let k = arr.length - 1;
+      while (j < k) {
 
-    if (Object.keys(obj).length === 1) {
-      return nums;
-    }
-
-    for (let i = 0; i < nums.length; i++) {
-      for (let j = i + 1; j < nums.length; j++) {
-        obj[nums[i]]--;
-        obj[nums[j]]--;
-        let twoSum = -nums[i] - nums[j];
-        if (obj[twoSum] >= 1) {
-          solution.push([nums[i], nums[j], twoSum]);
-        }
-        obj[nums[i]]++;
-        // obj[nums[j]]++;
+          sum = arr[i] + arr[j] + arr[k];
+          if (sum > 0) {
+              k = k - 1;
+          } else if (sum < 0) {
+              j = j + 1;
+          } else {
+              ans.push([arr[i], arr[j], arr[k]]);
+              while (arr[j] == arr[j+ 1]) j++;
+              while (arr[k] == arr[k - 1]) k--;
+              j++;
+              k--;
+          }
       }
-      obj[nums[i]]--;
-    }
-    return solution;
-};
+  }
+  return ans;
+}
 
 console.log(threeSum([-1, 0, 1, 2, -1, -4]));
 // console.log(threeSum([0, 0, 0]));

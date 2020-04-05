@@ -1,5 +1,5 @@
 var levelOrder = function(root) {
-  if (root === null) return;
+  if (!root) return;
   const q = [], result = [];
   q.push(root);
   while(q.length) {
@@ -8,8 +8,8 @@ var levelOrder = function(root) {
     for (let i = 0; i < count; i++) {
       const node = q.shift();
       temp.push(node.val);
-      if (node.left !== null) q.push(node.left);
-      if (node.right !== null) q.push(node.right);
+      if (node.left) q.push(node.left);
+      if (node.right) q.push(node.right);
     }
     result.push(temp);
   }

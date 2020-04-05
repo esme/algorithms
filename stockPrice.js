@@ -12,8 +12,6 @@ function getMaxProfit(stockPrices) {
   return maxProfit;
 }
 
-// Tests
-
 let desc = 'price goes up then down'; 
 let actual = getMaxProfit([1, 5, 3, 2]);
 let expected = 4;

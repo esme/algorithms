@@ -1,17 +1,23 @@
-// Question2 Suppose you're given a binary tree represented as an array. For example, [3,6,2,9-1,10] represents the following binary tree (where -1 is a non-existent node): 3 6 2 10 9 Write a function that determines whether the left or right branch of the tree is larger. The size of each branch is the sum of the node values. The function should retun the string "Right" if the right side is larger and "Left" if the left side is larger. hf the tree has 0 nodes or if the size of the branches are equal, return the empty string. Example Input: 13,6,2,9,-1,101 Example Output: Left
+/*
+    Question2 Suppose you're given a binary tree represented as an array. 
+    For example, [3,6,2,9-1,10] represents the following binary tree (where -1 is a non-existent node): 3 6 2 10 9
+    Write a function that determines whether the left or right branch of the tree is larger.
+    The size of each branch is the sum of the node values.
+    The function should retun the string "Right" if the right side is larger and "Left" if the left side is larger.
+    If the tree has 0 nodes or if the size of the branches are equal, return the empty string.
+    Example Input: 13,6,2,9,-1,101 Example Output: Left
+*/
+
 const solution = (arr) => {
-  // Type your solution here 
   if (arr.length === 0) {
       return '';
   }
   
-  let count = 1;
   let direction = ['root'];
   let left = 0;
   let right = 0;
   
   const height = Math.floor(Math.log2(arr.length)) + 1;
-//     console.log(height, 'height')
 
   for (let i = 1; i < height; i++) {
       for (let j = 0; j < 2 ** i; j++) {
@@ -22,7 +28,7 @@ const solution = (arr) => {
           }
       }
   }
-//     console.log(direction);
+
   for (let k = 0; k < arr.length; k++) {
       if(direction[k] === 'left') {
           left += arr[k];

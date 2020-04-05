@@ -1,9 +1,3 @@
-// I - sorted array and a number
-// O - index of the number in the array
-// C - none
-// E - return null if item does not exist
-
-
 // recursive
 const binarySearch = (arr, target, left, right) => {
   left = left || 0;

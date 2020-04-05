@@ -3,14 +3,10 @@ const canAttendMeetings = (intervals) => {
   let prev = intervals[0];
   for (let curr of intervals) {
     if (prev === curr) continue;
-    if(isOverlap(prev, curr)) return false;
+    if(prev[0] < curr[1]) return false;
     prev = curr;
   }
   return true;
-};
-
-const isOverlap = (a, b) => {
-  return b[0] < a[1];
 };
 
 console.log(canAttendMeetings([[5,10], [2,6]]));

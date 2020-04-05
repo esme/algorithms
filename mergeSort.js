@@ -11,10 +11,14 @@ function merge(left, right) {
   while (i < left.length && j < right.length) {
     if (left[i] <= right[j]) {
       result.push(left[i]);
+      i++;
     } else {
       result.push(right[j]);
+      j++;
     }
   }
-  let remaining = i === left.length - 1 ? right.slice(j) : left.slice(i);
+  let remaining = i < left.length ? left.slice(i) : right.slice(j);
   return result.concat(remaining);
 }
+
+console.log(mergeSort([1,5,3]))

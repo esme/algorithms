@@ -1,6 +1,6 @@
 def sum_of_numbers(numbers):
-  if len(numbers) == 1:
-    return numbers[0]
+  if len(numbers) == 0:
+    return 0
   
   return numbers[0] + sum_of_numbers(numbers[1:])
 

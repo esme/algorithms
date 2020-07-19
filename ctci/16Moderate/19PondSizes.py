@@ -1,4 +1,4 @@
-def PondSizes(pond):
+def pondSizes(pond):
   size = {'sz': 0}
   sizes = []
 
@@ -54,13 +54,13 @@ def PondSizes(pond):
 
   return sizes
 
-print(PondSizes([
+print(pondSizes([
   [0]
 ]))
-print(PondSizes([
+print(pondSizes([
   [1]
 ]))
-print(PondSizes([
+print(pondSizes([
   [0,2,1,0],
   [0,1,0,1],
   [1,1,0,1],

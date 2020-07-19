@@ -3,7 +3,7 @@ keypad = ['', '', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
 
 # 32
 
-def T9(digits):
+def getT9Chars(digits):
   strDigits = str(digits);
   words = []
 
@@ -32,6 +32,6 @@ def T9(digits):
 
   return words
 
-print(T9(3))
-print(T9(32))
-print(T9(8733))
+print(getT9Chars(3))
+print(getT9Chars(32))
+print(getT9Chars(8733))
